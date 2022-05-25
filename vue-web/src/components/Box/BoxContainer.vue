@@ -38,7 +38,7 @@ export default {
     width: 100%;
     font-size: 1.1rem;
     color: #b3efff;
-    font-family: "黑体";
+    font-family: "Hiragino Sans GB";
   }
   .main-content {
     height: calc(100% - 28px);

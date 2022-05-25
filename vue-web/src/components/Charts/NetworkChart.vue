@@ -16,21 +16,25 @@ var categories = [
 ];
 export default {
   name: "NetChart",
-  data() {
-    return {
-      chartData: {},
-    };
+  props: {
+    node: Array,
+    edge: Array,
   },
+  // data() {
+  //   return {
+  //     chartData: {},
+  //   };
+  // },
   methods: {
-    getData() {
-      this.$axios.get("/test").then((response) => {
-        this.chartData = response.data;
-        console.log(this.chartData);
-        this.drawNet();
-      });
-    },
+    // getData() {
+    //   this.chartData.node = this.node;
+    //   this.chartData.edge = this.edge;
+    // },
 
     drawNet() {
+      if (this.myChart != null) {
+        this.myChart.dispose();
+      }
       this.myChart = echarts.init(document.getElementById("netChart"));
       var option = {
         legend: [
@@ -42,15 +46,20 @@ export default {
             },
           },
         ],
-        animationDuration: 1500,
-        animationEasingUpdate: "quinticInOut",
+        // animationDuration: 1500,
+        // animationEasingUpdate: "quinticInOut",
         series: [
           {
             name: "Network",
             type: "graph",
             layout: "force",
-            data: this.chartData.node,
-            links: this.chartData.edge,
+            tooltip: {
+              show: true,
+            },
+            // data: this.chartData.node,
+            // links: this.chartData.edge,
+            data: this.node,
+            links: this.edge,
             categories: categories,
             roam: true,
             label: {
@@ -66,10 +75,14 @@ export default {
               lineStyle: {
                 width: 10,
               },
+              linkLabel: {
+                show: true,
+                formatter: '{@source}',
+              },
             },
             force: {
-              gravity: 0.2,
-              repulsion: 40,
+              gravity: 0.4,
+              repulsion: 20,
             },
           },
         ],
@@ -80,8 +93,15 @@ export default {
       };
     },
   },
+
   mounted() {
-    this.getData();
+    this.drawNet();
+  },
+
+  watch: {
+    node: function () {
+      this.drawNet();
+    },
   },
 };
 </script>

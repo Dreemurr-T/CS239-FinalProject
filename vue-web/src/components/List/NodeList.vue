@@ -15,16 +15,22 @@
 <script>
 export default {
   name: "NodeList",
+  props: {
+    node: Array,
+  },
   data() {
     return {
       tableData: [],
     };
   },
   created() {
-    this.$axios.get("/test").then(response => {
-      this.tableData = response.data.node;
-    });
+    this.tableData = this.node;
   },
+  watch: {
+    node: function () {
+      this.tableData = this.node;
+    }
+  }
 };
 </script>
 

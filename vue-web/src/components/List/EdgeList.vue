@@ -17,15 +17,22 @@
 import axios from "axios";
 export default {
   name: "EdgeList",
+  props: {
+    edge: Array,
+  },
   data() {
     return {
       tableData: [],
     };
   },
   created() {
-    this.$axios.get("/test").then((response) => {
-      this.tableData = response.data.edge;
-    });
+    // console.log(this.edge);
+    this.tableData = this.edge;
+  },
+  watch: {
+    edge: function () {
+      this.tableData = this.edge;
+    },
   },
 };
 </script>
