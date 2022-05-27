@@ -14,28 +14,46 @@ var categories = [
   { name: "IP_C" },
   { name: "ASN" },
 ];
+var edgeImpact = {
+  r_cert: 2.5,
+  r_subdomain: 2.5,
+  r_request_jump: 2.5,
+  r_dns_a: 2.5,
+  r_whois_name: 2,
+  r_whois_phone: 2,
+  r_whois_email: 2,
+  r_cert_chain: 1.5,
+  r_cname: 1.5,
+  r_asn: 1,
+  r_cidr: 1,
+};
 export default {
   name: "NetChart",
   props: {
     node: Array,
     edge: Array,
   },
-  // data() {
-  //   return {
-  //     chartData: {},
-  //   };
-  // },
+  data() {
+    return {
+      // nodeData: [],
+      edgeData: [],
+    };
+  },
   methods: {
-    // getData() {
-    //   this.chartData.node = this.node;
-    //   this.chartData.edge = this.edge;
-    // },
+    getData() {
+      // this.nodeData = [];
+      this.edgeData = this.edge;
+      for (var edge of this.edgeData) {
+        var relation = edge["relation"];
+        edge["lineStyle"] = {
+          width: edgeImpact[relation],
+        };
+      }
+    },
 
     drawNet() {
-      if (this.myChart != null) {
-        this.myChart.dispose();
-      }
       this.myChart = echarts.init(document.getElementById("netChart"));
+      // console.log(this.edgeData);
       var option = {
         legend: [
           {
@@ -46,44 +64,57 @@ export default {
             },
           },
         ],
-        // animationDuration: 1500,
-        // animationEasingUpdate: "quinticInOut",
+        tooltip: {
+          trigger: "item",
+          backgroundColor: "None",
+          borderWidth: 0,
+          formatter: function (params) {
+            if (params.data.source) {
+              return params.data.relation;
+            } else {
+              return params.data.name;
+            }
+          },
+          textStyle: {
+            color: "#fff",
+            fontSize: 12,
+          },
+        },
+        animationDuration: 1500,
+        animationEasingUpdate: "quinticInOut",
         series: [
           {
             name: "Network",
             type: "graph",
             layout: "force",
-            tooltip: {
-              show: true,
-            },
-            // data: this.chartData.node,
-            // links: this.chartData.edge,
-            data: this.node,
-            links: this.edge,
-            categories: categories,
+            edgeSymbol: ["none", "arrow"],
+            edgeSymbolSize: "5",
+            zoom: 0.4,
             roam: true,
-            label: {
-              position: "right",
-              formatter: "{b}",
-            },
+            // label: {
+            //   position: "right",
+            //   formatter: "{b}",
+            // },
             lineStyle: {
               color: "source",
-              curveness: 0.3,
+              curveness: 0.2,
             },
             emphasis: {
+              label: {
+                show: false,
+              },
               focus: "adjacency",
               lineStyle: {
-                width: 10,
-              },
-              linkLabel: {
-                show: true,
-                formatter: '{@source}',
+                width: 6,
               },
             },
             force: {
-              gravity: 0.4,
-              repulsion: 20,
+              gravity: 0.1,
+              repulsion: 40,
             },
+            data: this.node,
+            links: this.edgeData,
+            categories: categories,
           },
         ],
       };
@@ -94,12 +125,18 @@ export default {
     },
   },
 
+  created() {
+    this.getData();
+  },
+
   mounted() {
     this.drawNet();
   },
 
   watch: {
     node: function () {
+      this.myChart.dispose();
+      this.getData();
       this.drawNet();
     },
   },

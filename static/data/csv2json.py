@@ -1,21 +1,30 @@
 import pandas as pd
 import json
 
-csv_path1 = 'corenodes1.csv'
-json_path1 = 'corenodes1.json'
+csv_path1 = 'corenodes10.csv'
+json_path1 = 'corenodes10.json'
 
-csv_path2 = 'link1.csv'
-json_path2 = 'keylink1.json'
+csv_path2 = 'newlinks10.csv'
+json_path2 = 'keylinks10.json'
+
+csv_path3 = 'allnode10.csv'
+json_path3 = 'allnodes10.json'
 
 df = pd.read_csv(csv_path1,header=None)
 # df.columns = ['id','name','category','industry']
-df.columns = ['id','name','category','industry','value']
+df.columns = ['id','name','category','industry','symbolSize']
 
 df.to_json(json_path1,orient='records')
 
 df = pd.read_csv(csv_path2,header=None)
 df.columns = ['relation','source','target','importance','jumps']
 df.to_json(json_path2,orient='records')
+
+df = pd.read_csv(csv_path3,header=None)
+# df.columns = ['id','name','category','industry']
+df.columns = ['id','name','category','industry']
+
+df.to_json(json_path3,orient='records')
 
 # # further transfer
 # f1 = open(json_path1,'r')

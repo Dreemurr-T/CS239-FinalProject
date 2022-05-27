@@ -125,7 +125,7 @@ export default {
             animationType: "scale",
             animationEasing: "elasticOut",
             animationDelay: function (idx) {
-              return 500;
+              return 200;
             },
           },
         ],

@@ -42,11 +42,16 @@
         <div class="chart-item1">
           <box-container :boxTitle="'网络资产图谱'">
             <net-chart v-if="flag" :node="node" :edge="edge"></net-chart>
-            /></box-container
-          >
+          </box-container>
         </div>
         <div class="chart-item2">
-          <box-container :boxTitle="'核心资产图谱'"> </box-container>
+          <box-container :boxTitle="'核心资产图谱'">
+            <key-web
+              v-if="flag"
+              :coreNode="corenode"
+              :keyLink="keylink"
+            ></key-web
+          ></box-container>
         </div>
       </div>
       <div class="right-charts">
@@ -73,6 +78,7 @@ import EdgeBar from "@/components/Charts/EdgeBar.vue";
 import IndustryPie from "@/components/Charts/IndustryPie.vue";
 import LiquidChart from "@/components/Charts/LiquidChart.vue";
 import SimInfo from "@/components/List/SimpleInfo.vue";
+import KeyWeb from "@/components/Charts/KeyWeb.vue";
 
 export default {
   name: "HomeView",
@@ -81,6 +87,8 @@ export default {
       flag: false,
       node: [],
       edge: [],
+      corenode: [],
+      keylink: [],
       index: 1,
     };
   },
@@ -93,6 +101,7 @@ export default {
     IndustryPie,
     LiquidChart,
     SimInfo,
+    KeyWeb,
   },
 
   methods: {
@@ -103,6 +112,8 @@ export default {
         .then((res) => {
           this.node = res.data.node;
           this.edge = res.data.edge;
+          this.corenode = res.data.coreNode;
+          this.keylink = res.data.keyLink;
           this.flag = true;
         })
         .catch((error) => {
@@ -128,7 +139,8 @@ export default {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url("../assets/bg.png") no-repeat center center;
+  // background: url("../assets/bg.png") no-repeat center center;
+  background-color: #040925;
   background-size: cover;
 }
 .main-container {
@@ -137,6 +149,7 @@ export default {
   box-sizing: border-box;
   padding-bottom: 10px;
   width: 100%;
+  
 
   .left-charts {
     vertical-align: middle;
