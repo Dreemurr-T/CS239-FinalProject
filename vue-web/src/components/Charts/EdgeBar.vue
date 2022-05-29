@@ -57,18 +57,20 @@ export default {
         yAxis: {
           type: "value",
           axisLabel: {
-            textStyle: {
-              fontFamilt: "Times New Roman",
-              fontSize: "10",
-              color: "#fff",
-            },
+            fontFamily: "Times New Roman",
+            fontSize: "10",
+            color: "#fff",
           },
         },
         xAxis: {
           type: "category",
           data: categories,
           axisLabel: {
-            show: false,
+            margin: 5,
+            rotate: -90,
+            color: "#FFFFFF",
+            fontSize: 9,
+            fontFamily: "Arial",
           },
         },
         series: [
@@ -107,6 +109,5 @@ export default {
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-
 }
 </style>

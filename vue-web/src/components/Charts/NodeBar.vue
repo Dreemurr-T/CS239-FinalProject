@@ -55,11 +55,9 @@ export default {
         xAxis: {
           type: "value",
           axisLabel: {
-            textStyle: {
-              fontFamilt: "Times New Roman",
-              fontSize: "10",
-              color: "#fff",
-            },
+            fontFamily: "Times New Roman",
+            fontSize: "10",
+            color: "#fff",
           },
         },
         yAxis: {
@@ -75,11 +73,9 @@ export default {
             "ASN",
           ],
           axisLabel: {
-            textStyle: {
-              fontFamilt: "Arial",
-              fontSize: "8",
-              color: "#fff",
-            },
+            fontFamily: "Arial",
+            fontSize: "8",
+            color: "#fff",
           },
         },
         series: [
