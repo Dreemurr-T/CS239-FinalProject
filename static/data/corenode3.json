@@ -1,0 +1,191 @@
+[
+    {
+        "id": "Domain_24acfd52f9ceb424d4a2643a832638ce1673b8689fa952d9010dd44949e6b1d9",
+        "name": "24acfd52f9.com",
+        "category": "Domain",
+        "industry": "[]",
+        "symbolSize": 20
+    },
+    {
+        "id": "ASN_bfe47d08b0915207ce5f3b739e2bd60484069a0f0591adf4ca6baf9f5779d27a",
+        "name": "AS_bfe47d08b0",
+        "category": "ASN",
+        "industry": "[]",
+        "symbolSize": 59
+    },
+    {
+        "id": "Cert_af49e2b01dc6d08092dadad88916a07fd8cb2ce30e118b8591bab058ddef0def",
+        "name": "af49e2b01d",
+        "category": "Cert",
+        "industry": "[]",
+        "symbolSize": 24
+    },
+    {
+        "id": "Domain_23314532d1b7a8dcefa617d95dfecdedf4bbd34adbf9e7235e4f0b0c8558b415",
+        "name": "23314532d1.com",
+        "category": "Domain",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "IP_dfaa6a8d8a443400ff7dcbdf7ea692de317ec7c25ffb35bb41f2d4827dc442f5",
+        "name": "104.18.xxx.xxx",
+        "category": "IP",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "IP_9edf8b9fe5f466067d324978646b56ef50d444508c44d9a679fff05c946fef38",
+        "name": "104.18.xxx.xxx",
+        "category": "IP",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "Domain_6133f2bc106a59d86ced33d84fc5967f86029a14e920e60a940cac8752cd4310",
+        "name": "6133f2bc10.com",
+        "category": "Domain",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "Domain_97c8df87f65e7531d3cd27ea54fa7a1f99e87a06ec6a79f76fa2ec6727ace97b",
+        "name": "97c8df87f6.com",
+        "category": "Domain",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "Domain_f05a811523cc0d174679b7022c323733da1e2908cf1a96f70f23d82718b9f5d3",
+        "name": "f05a811523.com",
+        "category": "Domain",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "Domain_3b95d8edb7612f532d955bdc655c8933e4aeb9ac89c7d58adafad15038b9405e",
+        "name": "3b95d8edb7.com",
+        "category": "Domain",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "Domain_1caaa336358862542335506a8cc83b706aba41022e73e6dd83415a50dc76cf74",
+        "name": "1caaa33635.com",
+        "category": "Domain",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "IP_630ad0b4920bfdc057f7f41929ece3e807e0006d0683d760bdee44b9bcb74e4f",
+        "name": "104.21.xxx.xxx",
+        "category": "IP",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "IP_cb8649e3521842dadd8d95c4835f0b17f055346a4b83da3f55207a9def5b0088",
+        "name": "104.27.xxx.xxx",
+        "category": "IP",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "IP_1e0ce2c908bc3a3b0b08ee52f5ac1a812ba15c948254ae2b24e246bc54e2f6db",
+        "name": "104.27.xxx.xxx",
+        "category": "IP",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "IP_136a30fb09124d6fdade3e3ffbf46c3708f361e40ed011b7f27ade91a5a30f92",
+        "name": "172.67.xxx.xxx",
+        "category": "IP",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "IP_00822ea0605953462e4298a8670a8b568daaa1c66d25687fa72e10854b1334a7",
+        "name": "104.21.xxx.xxx",
+        "category": "IP",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "IP_dc695466fc9bd1a9d85921808289b2125c2b03e1fd0b73846b7ad121467c9776",
+        "name": "172.67.xxx.xxx",
+        "category": "IP",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "Cert_b8d3a478b6ad784fcdd8af9149a3688d0207b336462145b5790da15ff75e0227",
+        "name": "b8d3a478b6",
+        "category": "Cert",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "IP_4f0c2464d0c376df1a0255324d6c1d341eb3f0fdd677d243fbc8fc3d2d6f5d5b",
+        "name": "104.21.xxx.xxx",
+        "category": "IP",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "IP_32439304e0797b52ad5410fb619eeb5133a1962816d0dc0168bee4ed9d756da4",
+        "name": "172.67.xxx.xxx",
+        "category": "IP",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "Cert_fcaa617e3e4c9175fd11251ae8dbc062bd187d30b671864685d14174fc67fceb",
+        "name": "fcaa617e3e",
+        "category": "Cert",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "IP_35b25eb8b6273e1183e9fe534ed2819f65253272a2fda9dc366c2620a5bb984b",
+        "name": "104.21.xxx.xxx",
+        "category": "IP",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "IP_6cdba9370e0da79ca8cc7a1a1b478b1b89cec10098474ede466d43f9ee3b58b2",
+        "name": "172.67.xxx.xxx",
+        "category": "IP",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "IP_a30c4165b1ddb706810e10db7db3f319f37cc6e1ae5ef72a60b933f76c8fee38",
+        "name": "104.21.xxx.xxx",
+        "category": "IP",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "IP_5e6dee2babf74a44468bbd8fdbad68d866da0a87bbb0a4e2be5cfec527a58025",
+        "name": "172.67.xxx.xxx",
+        "category": "IP",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "IP_cd02e6bac3884a3ddc69c5b53f02e0bbedd70b950fb519319931bdaede1821be",
+        "name": "104.21.xxx.xxx",
+        "category": "IP",
+        "industry": "[]",
+        "symbolSize": 1
+    },
+    {
+        "id": "IP_a275e4a3be234dcb14bcd774e41a329d4dd3e76863ce592a5d2e27d234ad835c",
+        "name": "172.67.xxx.xxx",
+        "category": "IP",
+        "industry": "[]",
+        "symbolSize": 1
+    }
+]

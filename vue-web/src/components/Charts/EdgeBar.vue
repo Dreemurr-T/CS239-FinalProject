@@ -25,22 +25,27 @@ export default {
       chartData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     };
   },
+  props: {
+    edge: Array,
+  },
   methods: {
     getData() {
-      this.$axios.get("/test").then((response) => {
-        var edgeData = response.data.edge;
-        for (var data of edgeData) {
-          for (var i = 0; i < 11; i++) {
-            if (data.relation == categories[i]) {
-              this.chartData[i] += 1;
-            }
+      for (var i = 0; i < 11; i++) {
+        this.chartData[i] = 0;
+      }
+      for (var data of this.edge) {
+        for (i = 0; i < 11; i++) {
+          if (data.relation == categories[i]) {
+            this.chartData[i] += 1;
           }
         }
-        this.drawBar();
-      });
+      }
     },
 
     drawBar() {
+      if (this.myChart != null) {
+        this.myChart.dispose();
+      }
       this.myChart = echarts.init(document.getElementById("barChart2"));
       var option = {
         tooltip: {
@@ -52,18 +57,20 @@ export default {
         yAxis: {
           type: "value",
           axisLabel: {
-            textStyle: {
-              fontFamilt: "Times New Roman",
-              fontSize: "10",
-              color: "#fff",
-            },
+            fontFamily: "Times New Roman",
+            fontSize: "10",
+            color: "#fff",
           },
         },
         xAxis: {
           type: "category",
           data: categories,
           axisLabel: {
-            show: false,
+            margin: 5,
+            rotate: -90,
+            color: "#FFFFFF",
+            fontSize: 9,
+            fontFamily: "Arial",
           },
         },
         series: [
@@ -71,8 +78,8 @@ export default {
             data: this.chartData,
             type: "bar",
             itemStyle: {
-                color: "pink"
-            }
+              color: "pink",
+            },
           },
         ],
       };
@@ -82,8 +89,17 @@ export default {
       };
     },
   },
-  mounted() {
+  created() {
     this.getData();
+  },
+  mounted() {
+    this.drawBar();
+  },
+  watch: {
+    edge: function () {
+      this.getData();
+      this.drawBar();
+    },
   },
 };
 </script>
@@ -92,7 +108,6 @@ export default {
 #barChart2 {
   box-sizing: border-box;
   width: 100%;
-  height: 130%;
-  margin-top:-50px;
+  height: 100%;
 }
 </style>

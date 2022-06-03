@@ -9,16 +9,16 @@
         </el-button>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item>团伙 1</el-dropdown-item>
-            <el-dropdown-item>团伙 2</el-dropdown-item>
-            <el-dropdown-item>团伙 3</el-dropdown-item>
-            <el-dropdown-item>团伙 4</el-dropdown-item>
-            <el-dropdown-item>团伙 5</el-dropdown-item>
-            <el-dropdown-item>团伙 6</el-dropdown-item>
-            <el-dropdown-item>团伙 7</el-dropdown-item>
-            <el-dropdown-item>团伙 8</el-dropdown-item>
-            <el-dropdown-item>团伙 9</el-dropdown-item>
-            <el-dropdown-item>团伙 10</el-dropdown-item>
+            <el-dropdown-item @click="$emit('update:index', 1)">团伙 1</el-dropdown-item>
+            <el-dropdown-item @click="$emit('update:index', 2)">团伙 2</el-dropdown-item>
+            <el-dropdown-item @click="$emit('update:index', 3)">团伙 3</el-dropdown-item>
+            <el-dropdown-item @click="$emit('update:index', 4)">团伙 4</el-dropdown-item>
+            <el-dropdown-item @click="$emit('update:index', 5)">团伙 5</el-dropdown-item>
+            <el-dropdown-item @click="$emit('update:index', 6)">团伙 6</el-dropdown-item>
+            <el-dropdown-item @click="$emit('update:index', 7)">团伙 7</el-dropdown-item>
+            <el-dropdown-item @click="$emit('update:index', 8)">团伙 8</el-dropdown-item>
+            <el-dropdown-item @click="$emit('update:index', 9)">团伙 9</el-dropdown-item>
+            <el-dropdown-item @click="$emit('update:index', 10)">团伙 10</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -27,11 +27,17 @@
   </div>
 </template>
 
-<script setup>
-import { ArrowDown } from '@element-plus/icons-vue'
-// export default {
-//   name: "NavBar",
-// };
+<script>
+import { ArrowDown } from "@element-plus/icons-vue";
+export default {
+  name: "NavBar",
+  components: {
+    ArrowDown,
+  },
+  props: {
+    index: Number,
+  },
+};
 </script>
 
 <style scoped>
@@ -47,9 +53,9 @@ import { ArrowDown } from '@element-plus/icons-vue'
 }
 
 .choose-group {
-position: absolute;
-left: 1%;
-top: 5%;
+  position: absolute;
+  left: 1%;
+  top: 5%;
 }
 
 .bar-title {

@@ -1,16 +1,14 @@
 <template>
   <div class="box-container">
-    <four-angel>
       <div class="boxTitle">{{ boxTitle }}</div>
       <div class="main-content">
         <slot></slot>
       </div>
-    </four-angel>
   </div>
 </template>
 
 <script>
-import FourAngel from "./AngelDec.vue";
+// import FourAngel from "./AngelDec.vue";
 export default {
   name: "boxContainer",
   props: {
@@ -20,7 +18,7 @@ export default {
     },
   },
   components: {
-    FourAngel,
+    // FourAngel,
   },
 };
 </script>
@@ -30,15 +28,18 @@ export default {
   width: 100%;
   height: 100%;
   position: relative;
-
+  background-color: #1C1C1C;
+  // margin: 5px;
   .boxTitle {
+    position: relative;
+    top: 5px;
     height: 28px;
     line-height: 28px;
     text-align: center;
     width: 100%;
     font-size: 1.1rem;
-    color: #b3efff;
-    font-family: "黑体";
+    color: 	#FFF5EE;
+    font-family: "Hiragino Sans GB";
   }
   .main-content {
     height: calc(100% - 28px);

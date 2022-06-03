@@ -21,22 +21,29 @@ export default {
       chartData: [0, 0, 0, 0, 0, 0, 0, 0],
     };
   },
+  props: {
+    node: Array,
+  },
   methods: {
     getData() {
-      this.$axios.get("/test").then((response) => {
-        var nodeData = response.data.node;
-        for (var data of nodeData) {
-          for (var i = 0; i < 8; i++) {
-            if (data.category == categories[i]) {
-              this.chartData[i] += 1;
-            }
+      // var nodeData = this.node
+      for (var i = 0; i < 8; i++) {
+        this.chartData[i] = 0;
+      }
+      for (var data of this.node) {
+        for (i = 0; i < 8; i++) {
+          if (data.category == categories[i]) {
+            this.chartData[i] += 1;
           }
         }
-        this.drawBar();
-      });
+      }
     },
 
     drawBar() {
+      if (this.myChart != null) {
+        this.myChart.dispose();
+      }
+
       this.myChart = echarts.init(document.getElementById("barChart1"));
       var option = {
         tooltip: {
@@ -48,11 +55,9 @@ export default {
         xAxis: {
           type: "value",
           axisLabel: {
-            textStyle: {
-              fontFamilt: "Times New Roman",
-              fontSize: "10",
-              color: "#fff"
-            }
+            fontFamily: "Times New Roman",
+            fontSize: "10",
+            color: "#fff",
           },
         },
         yAxis: {
@@ -68,11 +73,9 @@ export default {
             "ASN",
           ],
           axisLabel: {
-            textStyle: {
-              fontFamilt: "Arial",
-              fontSize: "8",
-              color: "#fff"
-            }
+            fontFamily: "Arial",
+            fontSize: "8",
+            color: "#fff",
           },
         },
         series: [
@@ -88,8 +91,17 @@ export default {
       };
     },
   },
-  mounted() {
+  created() {
     this.getData();
+  },
+  mounted() {
+    this.drawBar();
+  },
+  watch: {
+    node: function () {
+      this.getData();
+      this.drawBar();
+    },
   },
 };
 </script>
@@ -98,7 +110,6 @@ export default {
 #barChart1 {
   box-sizing: border-box;
   width: 100%;
-  height: 130%;
-  margin-top: -50px;
+  height: 100%;
 }
 </style>

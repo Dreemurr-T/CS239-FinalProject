@@ -8,6 +8,9 @@ var categories = ["A", "B", "C", "D", "E", "F", "G", "I"];
 
 export default {
   name: "IndustryPie",
+  props: {
+    node: Array,
+  },
   data() {
     return {
       chartData: [
@@ -52,23 +55,27 @@ export default {
   },
   methods: {
     getData() {
-      this.$axios.get("/test").then((response) => {
-        var nodeData = response.data.node;
-        for (var data of nodeData) {
-          var industryData = data.industry;
-          for (var i = 0; i < industryData.length; i++) {
-            for (var j = 0; j < 8; j++) {
-              if (industryData[i] == categories[j]) {
-                this.chartData[j].value += 1;
-              }
+      for (var j = 0; j < 8; j++) {
+        this.chartData[j].value = 0;
+      }
+      var nodeData = this.node;
+      for (var data of nodeData) {
+        var industryData = data.industry;
+        for (var i = 0; i < industryData.length; i++) {
+          for (j = 0; j < 8; j++) {
+            if (industryData[i] == categories[j]) {
+              this.chartData[j].value += 1;
             }
           }
         }
-        this.drawPie();
-      });
+      }
+      // this.drawPie();
     },
 
     drawPie() {
+      if (this.myChart != null) {
+        this.myChart.dispose();
+      }
       this.myChart = echarts.init(document.getElementById("pieChart"));
       var plotData = this.chartData.filter((item) => item.value != 0);
       var maxNum = 0;
@@ -118,7 +125,7 @@ export default {
             animationType: "scale",
             animationEasing: "elasticOut",
             animationDelay: function (idx) {
-              return Math.random() * 200;
+              return 200;
             },
           },
         ],
@@ -129,8 +136,20 @@ export default {
       };
     },
   },
-  mounted() {
+
+  created() {
     this.getData();
+  },
+
+  mounted() {
+    this.drawPie();
+  },
+
+  watch: {
+    node: function () {
+      this.getData();
+      this.drawPie();
+    },
   },
 };
 </script>
@@ -139,7 +158,7 @@ export default {
 #pieChart {
   box-sizing: border-box;
   width: 100%;
-  height: 130%;
-  margin-top: -50px;
+  height: 100%;
+  margin-top: -10px;
 }
 </style>

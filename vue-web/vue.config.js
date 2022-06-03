@@ -7,5 +7,9 @@ module.exports = defineConfig({
       preProcessor: 'scss',
       patterns: []
     }
-  }
+  },
+
+  outputDir: '../static',
+  indexPath: '../templates/index.html',
+  
 })
